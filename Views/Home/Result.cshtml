@@ -1,0 +1,48 @@
+@model QrInfoApp.Models.UserProfile
+
+@{
+    ViewData["Title"] = "Your QR Profile";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4 text-success mb-4">Profile Generated Successfully!</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                            @if (ViewBag.QrCodeImage != null)
+                            {
+                                <img src="@ViewBag.QrCodeImage" alt="QR Code" class="img-fluid border p-2" style="max-width: 300px;" />
+                                <p class="text-muted mt-2 small">Scan this code to see details</p>
+                            }
+                        </div>
+                        <div class="col-md-6 text-start">
+                            <h4 class="card-title text-primary">@Model.Name</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">@Model.Role</h6>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-4">Mobile</dt>
+                                <dd class="col-sm-8">@Model.MobileNo</dd>
+
+                                <dt class="col-sm-4">Experience</dt>
+                                <dd class="col-sm-8">@Model.ExperienceYears years</dd>
+
+                                <dt class="col-sm-4">Company</dt>
+                                <dd class="col-sm-8">@Model.LastCompany</dd>
+
+                                <dt class="col-sm-4">Skills</dt>
+                                <dd class="col-sm-8">@Model.Skills</dd>
+                            </dl>
+                            <div class="mt-4">
+                                <a asp-action="Index" class="btn btn-outline-primary">Create New Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

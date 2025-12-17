@@ -1,0 +1,10 @@
+**/.dockerignore
+**/.env
+**/bin
+**/obj
+**/TestResults
+**/.vscode
+**/.vs
+**/.git
+**/.gitignore
+Dockerfile

@@ -1,0 +1,55 @@
+﻿@model QrInfoApp.Models.UserProfile
+
+@{
+    ViewData["Title"] = "QR Info Generator";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="text-center mb-4">Generate Your QR Profile</h2>
+        
+        <form asp-action="Generate" method="post" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter your full name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Role" class="form-label"></label>
+                <input asp-for="Role" class="form-control" placeholder="e.g. Software Engineer" />
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="MobileNo" class="form-label"></label>
+                <input asp-for="MobileNo" class="form-control" placeholder="Mobile Number" />
+                <span asp-validation-for="MobileNo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ExperienceYears" class="form-label">Experience (Years)</label>
+                <input asp-for="ExperienceYears" class="form-control" placeholder="Enter Experience in Years" type="number" min="0" />
+                <span asp-validation-for="ExperienceYears" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="LastCompany" class="form-label">Last Company</label>
+                <input asp-for="LastCompany" class="form-control" placeholder="Previous Organization" />
+                <span asp-validation-for="LastCompany" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Skills" class="form-label"></label>
+                <textarea asp-for="Skills" class="form-control" rows="3" placeholder="List your key skills"></textarea>
+                <span asp-validation-for="Skills" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Generate QR Code</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
